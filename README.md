@@ -35,7 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Geoff Jamieson: [GitHub](https://github.com/UnionPAC) / [LinkedIn](https://www.linkedin.com/in/geoffjamieson/)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Vanshika Patel: [GitHub](https://github.com/vanshika-99) / [LinkedIn](https://linkedin.com/in/vanshikapatel)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
