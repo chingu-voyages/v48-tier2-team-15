@@ -36,6 +36,6 @@ coding!
 
 - Geoff Jamieson: [GitHub](https://github.com/UnionPAC) / [LinkedIn](https://www.linkedin.com/in/geoffjamieson/)
 - Vanshika Patel: [GitHub](https://github.com/vanshika-99) / [LinkedIn](https://linkedin.com/in/vanshikapatel)
-- Molly Gehring: [Github] (https://github.com/mkg1) / [LinkedIn](https://www.linkedin.com/in/mollykg/)
+- Molly Gehring: [Github](https://github.com/mkg1) / [LinkedIn](https://www.linkedin.com/in/mollykg/)
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
