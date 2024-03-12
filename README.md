@@ -29,14 +29,9 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 
 ## Our Team
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
-
 - Geoff Jamieson: [GitHub](https://github.com/UnionPAC) / [LinkedIn](https://www.linkedin.com/in/geoffjamieson/)
 - Vanshika Patel: [GitHub](https://github.com/vanshika-99) / [LinkedIn](https://linkedin.com/in/vanshikapatel)
 - Molly Gehring: [Github](https://github.com/mkg1) / [LinkedIn](https://www.linkedin.com/in/mollykg/)
-   ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-Oleg Klyufinskyy
+- Ja'Mesa Dixon: [Github](https://github.com/MeMeD10) / [LinkedIn](https://www.linkedin.com/in/jamesa-dixon/)
+- Koen Arnold: [Github](https://github.com/koenarnold) / [LinkedIn](https://www.linkedin.com/in/arnoldkoen/)
+- Oleg Klyufinskyy: [GitHub](https://github.com/olegklyufinskyy) / [LinkedIn](https://www.linkedin.com/in/oleg-klyufinskyy/)
