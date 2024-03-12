@@ -1,31 +1,113 @@
-# voyage-tasks
+# [App Name - TBD]
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+An app all about dinosaurs
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+### Table of Contents
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+- [Overview](#overview)
+- [Installation](#installation)
+- [Workflow](#workflow)
+- [Requirements & Specifications](#requirements--specifications)
+  - [Functionality](#functionality)
+  - [Extras](#extras)
+- [Tech Stack](#tech-stack)
+- [Our Team](#our-team)
+- [Acknowledgements](#acknowledgements)
+- [About Chingu](#about-chingu)
 
-> Own it & Make it your Own!
+## Overview
 
-## Team Documents
+Hey there! How about we create an app all about dinosaurs? We've got our data all set from the National History Museum that tells us about different dinosaurs.
 
-You may find these helpful as you work together to organize your project.
+Imagine our app like a dino world! We can show all kinds of dinosaurs – big ones looking for food, calm ones eating plants, and even tiny ones running around. From huge dinosaurs that made the ground shake to little ones in the forests.
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+And get this, our tool might even let us time-travel! Imagine going back in time to see how these dinosaurs lived. Plus, it tells us what type of dinosaur it is and where it used to call home. So, you'll get to know dinosaurs from all over the place.
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+We're thinking of adding a cool twist – using News data to show you the latest discoveries about dinosaurs. Pretty cool, huh?
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+## Installation
+
+1. Clone the repository locally
+   `git clone https://github.com/chingu-voyages/v48-tier2-team-15.git`
+   <br>
+2. Install project dependencies
+   `npm install`
+   <br>
+3. Run the project locally
+   `npm run dev`
+
+## Workflow
+
+## Requirements & Specifications
+
+### Functionality
+
+#### General Functionality
+
+- A single-page application (SPA) or it's equivalent design to provide users with an immersive experience in exploring dinosaurs through a user-friendly interface.
+
+#### Dinosaur Display
+
+- Display dinosaurs' name, weight, length, country, diet and corresponding images sourced from the provided API data.
+
+- Each dinosaur entry should be clickable to view full details.
+
+#### Search Component
+
+- Implement a search feature allowing users to search for dinosaurs by name, weight, length, country and diet.
+
+- Search results should dynamically filter and sort dinosaurs based on the entered data (name, weight, length, country, diet).
+
+- Search functionality should be case-insensitive and allow partial matching of dinosaur names.
+
+#### Diet Chart Visualization
+
+- The app must display two charts (pie chart and doughnut chart) illustrating the distribution of general dinosaur diets (e.g., herbivore, carnivore, omnivore) and type based on provided data.
+
+- The charts must accurately represent the proportion of each diet type within the dataset.
+
+- Users should be able to easily interpret and interact with the chart to understand diet composition.
+
+- Ensure the chart is visually appealing and informative, providing a clear overview of diet composition.
+
+#### Dinosaur Location Map
+
+- Display the location of a selected dinosaur on a map.
+
+- Upon clicking a dinosaur entry, dynamically fetch and display its geographic location on an interactive map using a mapping API (e.g., Google Maps).
+
+#### Dinosaur Details View
+
+- Enable users to view full details of a selected dinosaur upon clicking its entry.
+
+- The details view should be accessible and provide comprehensive information about the selected dinosaur.
+
+- Details should include additional information sourced from the API data such as:
+
+  - name
+  - imageSrc
+  - typeOfDinosaur
+  - length
+  - diet
+  - whenLived
+  - typeSpecies
+  - description
+  - foundIn
+  - taxonomy
+  - namedBy
+
+### Extras
+
+#### Display Dinosaur News
+
+- Consume the [NewsAPI](https://newsapi.org/) to display recent dinosaur discovery news related to a particular dinosaur.
+
+## Tech Stack
+
+- Vite
+- React
+- React-Router
+- TailwindCSS
 
 ## Our Team
 
@@ -35,3 +117,11 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 - Ja'Mesa Dixon: [Github](https://github.com/MeMeD10) / [LinkedIn](https://www.linkedin.com/in/jamesa-dixon/)
 - Koen Arnold: [Github](https://github.com/koenarnold) / [LinkedIn](https://www.linkedin.com/in/arnoldkoen/)
 - Oleg Klyufinskyy: [GitHub](https://github.com/olegklyufinskyy) / [LinkedIn](https://www.linkedin.com/in/oleg-klyufinskyy/)
+
+## Acknowledgements
+
+We acknowledge the [National History Museum](https://www.nhm.ac.uk/) for providing access to the dataset containing valuable information about dinosaurs. Additionally, we thank [NewsAPI](https://newsapi.org/) for delivering the latest news on dinosaur discoveries, contributing to our ongoing exploration of this fascinating field.
+
+## About Chingu
+
+If you aren’t yet a member of [Chingu](https://www.chingu.io/) we invite you to join us. We help our members transform what they’ve learned in courses & tutorials into the practical experience employers need and want.
