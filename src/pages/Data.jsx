@@ -1,3 +1,7 @@
+import { useFetch } from "../hooks/useFetch";
+import { PieChart } from "../components/PieChart";
+import { DoughnutChart } from "../components/DoughnutChart";
+
 const Data = () => {
   return (
     <div>
@@ -6,6 +10,8 @@ const Data = () => {
         Pie chart and doughnut charts illustrating the distribution of general
         dinosaur diet and type data.
       </p>
+      <PieChart />
+      <DoughnutChart />
     </div>
   );
 };
