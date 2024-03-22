@@ -1,27 +1,44 @@
 import * as d3 from "d3";
-import { useFetch } from "../hooks/useFetch";
-import { useEffect, useState } from "react";
 
-export const PieChart = () => {
-  const { data, error, loading } = useFetch(
-    "https://chinguapi.onrender.com/dinosaurs"
+const PieChart = ({ data, height, width }) => {
+  const dietCount = {};
+
+  data.forEach((dino) => {
+    dietCount[dino.diet] = (dietCount[dino.diet] || 0) + 1;
+  });
+
+  const dietData = Object.entries(dietCount).map(([name, count]) => ({
+    name,
+    count,
+  }));
+
+  // Create pie generator
+  const pie = d3
+    .pie()
+    .value((d) => d.count)
+    .sort(null);
+
+  // Create arc generator
+  const arc = d3
+    .arc()
+    .innerRadius(0)
+    .outerRadius(Math.min(width, height) / 2 - 10);
+
+  // Create arcs
+  const arcs = pie(dietData);
+
+  // Set Color
+  const color = d3.scaleSequential(d3.interpolateCool).domain([0, arcs.length]); // set domain based on the number of arcs
+
+  return (
+    <svg height={height} width={width}>
+      <g transform={`translate(${width / 2}, ${height / 2})`}>
+        {arcs.map((arcData, index) => (
+          <path key={index} d={arc(arcData)} fill={color(index)} />
+        ))}
+      </g>
+    </svg>
   );
-
-  const [dinoTypeKeys, setDinoTypeKeys] = useState(new Set());
-  const [dinoDietKeys, setDinoDietKeys] = useState(new Set());
-
-  console.log(`Dinosaur Types: ${Array.from(dinoTypeKeys)}`);
-  console.log(`Dinosaur Diets: ${Array.from(dinoDietKeys)}`);
-
-  useEffect(() => {
-    if (!loading && data) {
-      const typeKeys = new Set(data.map((dino) => dino.typeOfDinosaur));
-      setDinoTypeKeys(typeKeys);
-
-      const dietKeys = new Set(data.map((dino) => dino.diet));
-      setDinoDietKeys(dietKeys);
-    }
-  }, [data, loading]);
-
-  return <div>Pie Chart</div>;
 };
+
+export default PieChart;

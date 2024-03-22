@@ -1,18 +1,25 @@
 import { useFetch } from "../hooks/useFetch";
-import { PieChart } from "../components/PieChart";
-import { DoughnutChart } from "../components/DoughnutChart";
+import PieChart from "../components/PieChart";
+import DoughnutChart from "../components/DoughnutChart";
 
 const Data = () => {
+  const { data, error, loading } = useFetch(
+    "https://chinguapi.onrender.com/dinosaurs"
+  );
+
   return (
-    <div>
+    <main>
       <h1 className="text-2xl font-semibold">Data</h1>
-      <p>
-        Pie chart and doughnut charts illustrating the distribution of general
-        dinosaur diet and type data.
-      </p>
-      <PieChart />
-      <DoughnutChart />
-    </div>
+      {error && <>{error.message}</>}
+      {loading ? (
+        <div>Loading ...</div>
+      ) : (
+        <div className="flex">
+          <PieChart data={data} height={500} width={700} />
+          <DoughnutChart data={data} height={500} width={700} />
+        </div>
+      )}
+    </main>
   );
 };
 
