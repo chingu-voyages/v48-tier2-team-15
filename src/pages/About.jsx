@@ -1,47 +1,86 @@
-import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-
 const About = () => {
-  const [teamMembers] = useState([
-    { name: 'Geoff Jamieson', github: 'https://github.com/UnionPAC', linkedin: 'https://www.linkedin.com/in/geoffjamieson/', role: 'Frontend Developer' },
-    { name: 'Vanshika Patel', github: 'https://github.com/vanshika-99', linkedin: 'https://linkedin.com/in/vanshikapatel', role: 'UI/UX Designer' },
-    { name: 'Molly Gehring', github: 'https://github.com/mkg1', linkedin: 'https://www.linkedin.com/in/mollykg/', role: 'Frontend Developer' },
-    { name: "Ja'Mesa Dixon", github: 'https://github.com/MeMeD10', linkedin: 'https://www.linkedin.com/in/jamesa-dixon/', role: 'Scrum Master' },
-    { name: 'Oleg Klyufinskyy', github: 'https://github.com/olegklyufinskyy', linkedin: 'https://www.linkedin.com/in/oleg-klyufinskyy/', role: 'Frontend Developer' }
-  ]);
+  const teamMembers = [
+    {
+      name: "Geoff Jamieson",
+      github: "https://github.com/UnionPAC",
+      linkedin: "https://www.linkedin.com/in/geoffjamieson/",
+      role: "Frontend Developer",
+    },
+    {
+      name: "Vanshika Patel",
+      github: "https://github.com/vanshika-99",
+      linkedin: "https://linkedin.com/in/vanshikapatel",
+      role: "UI/UX Designer",
+    },
+    {
+      name: "Molly Gehring",
+      github: "https://github.com/mkg1",
+      linkedin: "https://www.linkedin.com/in/mollykg/",
+      role: "Frontend Developer",
+    },
+    {
+      name: "Ja'Mesa Dixon",
+      github: "https://github.com/MeMeD10",
+      linkedin: "https://www.linkedin.com/in/jamesa-dixon/",
+      role: "Scrum Master",
+    },
+    {
+      name: "Oleg Klyufinskyy",
+      github: "https://github.com/olegklyufinskyy",
+      linkedin: "https://www.linkedin.com/in/oleg-klyufinskyy/",
+      role: "Frontend Developer",
+    },
+  ];
 
   return (
-    <div>
-      <div className="mb-8">
-        <h2 className="container mx-auto px-4 py-4 text-center flex-col bg-green-600  text-white  rounded p-4 text-2xl font-bold mb-4">
+    <div className="w-[90%] mx-auto max-w-[1400px]">
+      <div className="my-20 px-4">
+        <h2 className="text-center flex-col text-3xl font-bold my-12 font-firaSans tracking-widest">
+          About the App
+        </h2>
+        <p className="text-[0.95rem] text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+          nobis aspernatur dolorum at earum? Ducimus maiores illo debitis.
+          Repellat maxime temporibus porro harum nemo inventore assumenda minus
+          tenetur doloremque veniam. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Temporibus nobis aspernatur dolorum at earum?
+          Ducimus maiores illo debitis. Repellat maxime temporibus porro harum
+          nemo inventore assumenda minus tenetur doloremque veniam?
+        </p>
+      </div>
+      <div className="my-24">
+        <h2 className="text-center flex-col text-3xl font-bold my-12 font-firaSans tracking-widest">
           Our Team
         </h2>
-        <div className="grid mx-auto px-4 py-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-green-600 text-white rounded p-4"
+              className="bg-[#222E50] px-4 py-16 text-white rounded-xl shadow-xl border-2 border-green-300 hover:scale-105"
             >
-              <h3 className="text-lg font-semibold mb-2">{member.name}</h3>
-              <p className="text-sm text-gray-500 mb-2">{member.role}</p>
-              <div className="flex justify-center">
+              <h3 className="text-2xl font-semibold mb-2 font-firaSans tracking-wider">
+                {member.name}
+              </h3>
+              <p className="text-sm mb-10 italic">{member.role}</p>
+              <div className="flex justify-center gap-8">
                 <a
                   href={member.github}
-                  className="text-blue-200 hover:text-blue-100 mr-4"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="text-blue-200 hover:text-white"
                 >
-                  <FontAwesomeIcon icon={faGithub} />
+                  <FontAwesomeIcon icon={faGithub} size="2xl" />
                 </a>
                 <a
                   href={member.linkedin}
-                  className="text-blue-200 hover:text-blue-100"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="text-blue-200 hover:text-white"
                 >
-                  <FontAwesomeIcon icon={faLinkedin} />
+                  <FontAwesomeIcon icon={faLinkedin} size="2xl" />
                 </a>
               </div>
             </div>
@@ -49,19 +88,21 @@ const About = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-4 text-center flex-col bg-green-600  text-white  rounded p-4 text-2xl font-bold mb-4">
-        <h2 className="text-3xl font-bold mb-4">Acknowledgements</h2>
-        <p className="text-lg mb-4">
-          We acknowledge the National History Museum for providing access to the
-          dataset containing valuable information about dinosaurs. Additionally,
-          we thank NewsAPI for delivering the latest news on dinosaur
-          discoveries, contributing to our ongoing exploration of this
-          fascinating field.
-        </p>
-        <p className="text-lg">
-          This project is focused on dinosaurs, exploring their history,
-          discoveries, and the fascinating world of paleontology.
-        </p>
+      <div className="text-center mb-20">
+        <h2 className="font-firaSans text-xl mb-8">Acknowledgements</h2>
+        <div className="text-[0.9rem]">
+          <p className="mb-4">
+            We acknowledge the National History Museum for providing access to
+            the dataset containing valuable information about dinosaurs.
+            Additionally, we thank NewsAPI for delivering the latest news on
+            dinosaur discoveries, contributing to our ongoing exploration of
+            this fascinating field.
+          </p>
+          <p>
+            This project is focused on dinosaurs, exploring their history,
+            discoveries, and the fascinating world of paleontology.
+          </p>
+        </div>
       </div>
     </div>
   );
