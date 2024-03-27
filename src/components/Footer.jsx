@@ -1,11 +1,14 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 const Footer = () => {
   return (
-    <footer>
+    <footer className="w-full p-6 text-center">
       <a
         href="https://github.com/chingu-voyages/v48-tier2-team-15"
         target="_blank"
       >
-        <i className="fa-brands fa-github text-black"></i>
+        <FontAwesomeIcon icon={faGithub} color="black" size="2xl" />
       </a>
     </footer>
   );
