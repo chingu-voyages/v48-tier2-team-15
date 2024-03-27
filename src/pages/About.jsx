@@ -59,7 +59,7 @@ const About = () => {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-[#222E50] px-4 py-16 text-white rounded-xl shadow-xl border-2 border-green-300 hover:scale-105"
+              className="bg-[#222E50] px-4 py-16 text-white rounded-2xl shadow-xl hover:scale-105 border-4 border-slate-600"
             >
               <h3 className="text-2xl font-semibold mb-2 font-firaSans tracking-wider">
                 {member.name}
