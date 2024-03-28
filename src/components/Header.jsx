@@ -1,100 +1,101 @@
-import { Link } from "react-router-dom";
+import { faBars, faSearch, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { useState } from "react";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileSearching, setMobileSearching] = useState(false);
 
   return (
-    <header className="flex items-center justify-between p-4 sm:p-6 md:p-8 lg:px-10 gap-8 ">
-      <Link to="/" className="xl:flex-1">
-        <h1 className="text-3xl md:text-4xl font-mountainsOfChristmas font-bold">
-          DinoWorld
-        </h1>
-      </Link>
-
-      {/* Mobile Nav*/}
-      {isOpen ? (
-        <div className="fixed top-0 left-0 h-full w-full bg-black z-10">
-          <FontAwesomeIcon
-            icon={faX}
-            size="lg"
-            color="white"
-            onClick={toggleMenu}
-          />
-          <div className="flex flex-col items-center text-white my-24">
-            <h2 className="text-4xl font-bold mb-14">Menu</h2>
-            <nav>
-              <ul className="space-y-6 text-center">
-                <li>
-                  <Link to="/" onClick={() => setIsOpen(false)}>
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" onClick={() => setIsOpen(false)}>
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/go-digging" onClick={() => setIsOpen(false)}>
-                    Go Digging
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/data" onClick={() => setIsOpen(false)}>
-                    Data
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+    <header className="p-4 py-6 md:p-8 lg:px-10 bg-slate-800 text-white">
+      {/* Mobile Layout */}
+      <div className="md:hidden ">
+        <div className="flex items-center justify-between ">
+          <div className="bg-slate-700 p-3 px-4 rounded-full">
+            <FontAwesomeIcon icon={faBars} size="lg" />
+          </div>
+          <Link to="/">
+            <h1 className="text-3xl md:text-4xl font-mountainsOfChristmas font-bold">
+              DinoWorld
+            </h1>
+          </Link>
+          <div className="bg-slate-700 p-3 px-4 rounded-full">
+            <FontAwesomeIcon
+              icon={faSearch}
+              size="lg"
+              onClick={() => setMobileSearching(!mobileSearching)}
+            />
           </div>
         </div>
-      ) : (
-        <FontAwesomeIcon
-          icon={faBars}
-          size="lg"
-          onClick={toggleMenu}
-          className="md:hidden"
-        />
-      )}
+      </div>
 
-      {/* Desktop Nav */}
-      <nav className="hidden md:flex text-[0.9rem] font-firaSans lg:flex-1 ml-4">
-        <ul className="flex space-x-4 lg:space-x-8">
-          <li>
-            <Link
-              to="/about"
-              className="border-2 p-3 md:px-4 xl:px-6 rounded-3xl hover:bg-slate-100"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/go-digging"
-              className="border-2 p-3 md:px-4 xl:px-6 rounded-3xl hover:bg-slate-100"
-            >
-              Go Digging
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/data"
-              className="border-2 p-3 md:px-4 xl:px-6 rounded-3xl hover:bg-slate-100"
-            >
-              Data
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <SearchBar />
+      {/* Tablet & Desktop Layout */}
+      <div className="hidden md:block">
+        <div className=" flex items-center justify-between">
+          <Link to="/">
+            <h1 className="text-3xl md:text-4xl font-mountainsOfChristmas font-bold pr-4">
+              DinoWorld
+            </h1>
+          </Link>
+          <nav>
+            <ul className="flex space-x-4">
+              <li>
+                <Link
+                  to="/about"
+                  className="border-2 border-slate-600 text-[0.95rem] p-3 px-4 rounded-3xl hover:bg-[#40826D]"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/go-digging"
+                  className="border-2 border-slate-600 text-[0.95rem] p-3 px-4  rounded-3xl hover:bg-[#40826D]"
+                >
+                  Go Digging
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/data"
+                  className="border-2 border-slate-600 text-[0.95rem] p-3 px-4  rounded-3xl hover:bg-[#40826D]"
+                >
+                  Data
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <div className="bg-slate-700 p-3 px-4 rounded-full lg:hidden">
+            <FontAwesomeIcon
+              icon={faSearch}
+              size="lg"
+              onClick={setMobileSearching}
+            />
+          </div>
+          <div className="hidden lg:block flex-1 max-w-[450px] relative">
+            <SearchBar />
+          </div>
+        </div>
+      </div>
+      {/* Full Screen Mobile Search */}
+      {mobileSearching && (
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-900 text-white z-10">
+          <div className="flex flex-row-reverse p-4 py-6 gap-2 items-center justify-center">
+            <FontAwesomeIcon
+              icon={faX}
+              size="lg"
+              color="lightgrey"
+              className="bg-slate-700 p-3 px-4 rounded-full"
+              onClick={() => setMobileSearching(!mobileSearching)}
+            />
+            <div className="flex-1 max-w-[500px]">
+              <SearchBar />
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
