@@ -13,7 +13,7 @@ const Hero = () => {
           <h1 className="text-4xl md:text-6xl text-white font-bold mb-4 font-firaSans">
             Welcome to DinoWorld
           </h1>
-          <p className="text-md md:text-lg text-white">
+          <p className="md:text-lg text-white">
             A place to discover all sorts of cool facts about dinosaurs!
           </p>
         </div>

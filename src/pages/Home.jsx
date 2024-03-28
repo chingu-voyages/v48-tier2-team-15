@@ -10,7 +10,7 @@ const Home = () => {
       <Hero />
       {/* Some General Info */}
       <div className="w-[80%] max-w-[800px] mx-auto my-12">
-        <h3 className="text-2xl font-firaSans mb-4">Lorem Ipsum</h3>
+        <h3 className="text-xl font-firaSans mb-4">Lorem Ipsum</h3>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores sit
           autem dolore hic voluptatem porro cum sapiente accusamus eos quis
