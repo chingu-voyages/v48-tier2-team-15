@@ -12,11 +12,13 @@ const App = () => {
   }, [pathname]);
 
   return (
-    <>
+    <div className="flex flex-col min-h-[100vh] ">
       <Header />
-      <Outlet />
+      <div className="flex-1">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
