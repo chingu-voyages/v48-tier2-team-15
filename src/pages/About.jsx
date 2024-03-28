@@ -37,7 +37,7 @@ const About = () => {
 
   return (
     <div className="w-[90%] mx-auto max-w-[1400px]">
-      <div className="my-20 px-4">
+      <div className="my-20 px-4 max-w-[1000px] mx-auto">
         <h2 className="text-center flex-col text-3xl font-bold my-12 font-firaSans tracking-widest">
           About the App
         </h2>
@@ -59,7 +59,7 @@ const About = () => {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-[#222E50] px-4 py-16 text-white rounded-2xl shadow-xl hover:scale-105 border-4 border-slate-600"
+              className="px-4 py-16 rounded shadow hover:scale-105 border-4"
             >
               <h3 className="text-2xl font-semibold mb-2 font-firaSans tracking-wider">
                 {member.name}
@@ -70,7 +70,6 @@ const About = () => {
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-200 hover:text-white"
                 >
                   <FontAwesomeIcon icon={faGithub} size="2xl" />
                 </a>
@@ -78,7 +77,6 @@ const About = () => {
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-200 hover:text-white"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="2xl" />
                 </a>
@@ -88,7 +86,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="text-center mb-20">
+      <div className="text-center mb-20 max-w-[1000px] mx-auto">
         <h2 className="font-firaSans text-xl mb-8">Acknowledgements</h2>
         <div className="text-[0.9rem]">
           <p className="mb-4">

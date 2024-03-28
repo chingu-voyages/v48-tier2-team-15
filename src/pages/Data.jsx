@@ -9,7 +9,6 @@ const Data = () => {
 
   return (
     <main>
-      <h1 className="text-2xl font-semibold">Data</h1>
       {error && <>{error.message}</>}
       {loading ? (
         <div>Loading ...</div>
