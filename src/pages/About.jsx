@@ -41,7 +41,7 @@ const About = () => {
         <h2 className="text-center flex-col text-3xl font-bold my-12 font-firaSans tracking-widest">
           About the App
         </h2>
-        <p className="text-[0.95rem] text-center">
+        <p className="text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           nobis aspernatur dolorum at earum? Ducimus maiores illo debitis.
           Repellat maxime temporibus porro harum nemo inventore assumenda minus
