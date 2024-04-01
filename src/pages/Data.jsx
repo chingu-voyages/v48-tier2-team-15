@@ -7,6 +7,8 @@ const Data = () => {
     "https://chinguapi.onrender.com/dinosaurs"
   );
 
+  console.log('data: ', data)
+
   return (
     <main>
       {error && <>{error.message}</>}
