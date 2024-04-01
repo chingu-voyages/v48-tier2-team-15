@@ -1,16 +1,5 @@
 import React, {useCallback, useState} from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-
-const containerStyle = {
-    width: '80%',
-    margin: 'auto',
-    height: '400px'
-  };
-  
-  const center = {
-    lat: 56.1304,
-    lng: 106.3468
-  };
   
 const DinoMap = ({markers}) => {
     const { isLoaded } = useJsApiLoader({
@@ -20,11 +9,18 @@ const DinoMap = ({markers}) => {
 
       const [dinoMap, setMap] = useState(null)
 
-      const onLoad = useCallback(function callback(dinoMap) {
-        // This is just an example of getting and using the map instance!!! don't just blindly copy!
-        const bounds = new window.google.maps.LatLngBounds(center);
-        dinoMap.fitBounds(bounds);
+      const center = {
+        lat:  0,
+        lng: 0
+      };
     
+      const containerStyle = {
+        width: '80%',
+        margin: 'auto',
+        height: '400px'
+      };
+          
+      const onLoad = useCallback(function callback(dinoMap) {    
         setMap(dinoMap)
       }, [])
     
@@ -37,7 +33,7 @@ const DinoMap = ({markers}) => {
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={3}
+            zoom={1}
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
