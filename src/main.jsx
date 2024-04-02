@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <Data />,
       },
       {
-        path: "/dinosaur/:dinosaurName",
+        path: "/dinosaurs/:dinosaurName",
         element: <DinosaurDetailView />,
       },
     ],
