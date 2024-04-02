@@ -38,7 +38,7 @@ const About = () => {
   return (
     <div className="w-[90%] mx-auto max-w-[1400px]">
       <div className="my-20 px-4 max-w-[1000px] mx-auto">
-        <h2 className="text-center flex-col text-3xl font-bold my-12 font-firaSans tracking-widest">
+        <h2 className="text-center flex-col text-3xl font-bold my-12 tracking-widest">
           About the App
         </h2>
         <p className="text-center">
@@ -52,7 +52,7 @@ const About = () => {
         </p>
       </div>
       <div className="my-24">
-        <h2 className="text-center flex-col text-3xl font-bold my-12 font-firaSans tracking-widest">
+        <h2 className="text-center flex-col text-3xl font-bold my-12 tracking-widest">
           Our Team
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
@@ -61,7 +61,7 @@ const About = () => {
               key={member.name}
               className="px-4 py-16 rounded shadow hover:scale-105 border-4"
             >
-              <h3 className="text-2xl font-semibold mb-2 font-firaSans tracking-wider">
+              <h3 className="text-2xl font-semibold mb-2 tracking-wider">
                 {member.name}
               </h3>
               <p className="text-sm mb-10 italic">{member.role}</p>
@@ -87,7 +87,7 @@ const About = () => {
       </div>
 
       <div className="text-center mb-20 max-w-[1000px] mx-auto">
-        <h2 className="font-firaSans text-xl mb-8">Acknowledgements</h2>
+        <h2 className="text-xl mb-8 font-bold">Acknowledgements</h2>
         <div className="text-[0.9rem]">
           <p className="mb-4">
             We acknowledge the National History Museum for providing access to
