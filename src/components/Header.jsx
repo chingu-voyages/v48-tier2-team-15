@@ -1,101 +1,57 @@
-import { faBars, faSearch, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 import SearchBar from "./SearchBar";
-import { useState } from "react";
+
+const navLinks = [
+  { name: "About", to: "/about" },
+  { name: "Go Digging", to: "/go-digging" },
+  { name: "Data", to: "/data" },
+];
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mobileSearching, setMobileSearching] = useState(false);
-
   return (
-    <header className="p-4 py-6 md:p-8 lg:px-10 bg-slate-800 text-white">
+    <header className="p-6 md:px-8">
       {/* Mobile Layout */}
       <div className="md:hidden ">
-        <div className="flex items-center justify-between ">
-          <div className="bg-slate-700 p-3 px-4 rounded-full">
-            <FontAwesomeIcon icon={faBars} size="lg" />
-          </div>
+        <div className="flex items-center justify-between">
+          <FontAwesomeIcon icon={faBars} className="text-slate-500" />
           <Link to="/">
-            <h1 className="text-3xl md:text-4xl font-mountainsOfChristmas font-bold">
-              DinoWorld
-            </h1>
+            <img src={logo} alt="DinoPedia" />
           </Link>
-          <div className="bg-slate-700 p-3 px-4 rounded-full">
-            <FontAwesomeIcon
-              icon={faSearch}
-              size="lg"
-              onClick={() => setMobileSearching(!mobileSearching)}
-            />
-          </div>
+          <FontAwesomeIcon icon={faSearch} className="text-slate-500" />
         </div>
       </div>
 
       {/* Tablet & Desktop Layout */}
       <div className="hidden md:block">
-        <div className=" flex items-center justify-between">
+        <div className="flex items-center justify-between gap-8">
           <Link to="/">
-            <h1 className="text-3xl md:text-4xl font-mountainsOfChristmas font-bold pr-4">
-              DinoWorld
-            </h1>
+            <img src={logo} alt="DinoPedia" />
           </Link>
           <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <Link
-                  to="/about"
-                  className="border-2 border-slate-600 text-[0.95rem] p-3 px-4 rounded-3xl hover:bg-[#40826D]"
+            <ul className="flex space-x-4 lg:space-x-6">
+              {navLinks.map(({ name, to }, index) => (
+                <li
+                  key={index}
+                  className="bg-slate-700 text-white text-[0.95rem] rounded-3xl hover:bg-[#40826D]"
                 >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/go-digging"
-                  className="border-2 border-slate-600 text-[0.95rem] p-3 px-4  rounded-3xl hover:bg-[#40826D]"
-                >
-                  Go Digging
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/data"
-                  className="border-2 border-slate-600 text-[0.95rem] p-3 px-4  rounded-3xl hover:bg-[#40826D]"
-                >
-                  Data
-                </Link>
-              </li>
+                  <Link to={to}>
+                    <p className="px-6 py-3">{name}</p>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
-          <div className="bg-slate-700 p-3 px-4 rounded-full lg:hidden">
-            <FontAwesomeIcon
-              icon={faSearch}
-              size="lg"
-              onClick={setMobileSearching}
-            />
+          <div className="lg:hidden">
+            <FontAwesomeIcon icon={faSearch} className="text-slate-500" />
           </div>
-          <div className="hidden lg:block flex-1 max-w-[450px] relative">
+          <div className="hidden lg:block flex-1 max-w-[500px]">
             <SearchBar />
           </div>
         </div>
       </div>
-      {/* Full Screen Mobile Search */}
-      {mobileSearching && (
-        <div className="fixed top-0 left-0 w-full h-full bg-gray-900 text-white z-10">
-          <div className="flex flex-row-reverse p-4 py-6 gap-2 items-center justify-center">
-            <FontAwesomeIcon
-              icon={faX}
-              size="lg"
-              color="lightgrey"
-              className="bg-slate-700 p-3 px-4 rounded-full"
-              onClick={() => setMobileSearching(!mobileSearching)}
-            />
-            <div className="flex-1 max-w-[500px]">
-              <SearchBar />
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 };

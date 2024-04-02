@@ -1,49 +1,40 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faX } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import SearchList from "./SearchList";
 
 const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
+  const [query, setQuery] = useState("");
 
   const handleChange = ({ target }) => {
-    setSearchValue(target.value);
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
+    setQuery(target.value);
   };
 
   return (
-    <div
-      className={`flex items-center rounded-3xl overflow-hidden border ${
-        isFocused ? "bg-slate-600" : "border-slate-600"
-      } hover:border-slate-600 hover:bg-slate-600`}
-    >
-      <input
-        type="text"
-        value={searchValue}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        placeholder="Search by name, age, diet ..."
-        className="focus:outline-none w-full py-2 pl-6 text-[0.8rem] tracking-wide bg-inherit text-white"
-      />
-      <div>
-        {searchValue === "" ? (
-          <div className="py-2 px-6">
-            <FontAwesomeIcon icon={faSearch} size="sm" color="lightgrey" />
-          </div>
+    <div className="flex flex-col relative">
+      <div className="flex items-center bg-[#E6E6E6] rounded-3xl px-5 py-3 z-10">
+        <input
+          type="text"
+          value={query}
+          onChange={handleChange}
+          placeholder="Search..."
+          className="focus:outline-none w-full bg-inherit text-[0.85rem]"
+        />
+        {query === "" ? (
+          <FontAwesomeIcon icon={faSearch} className="text-[#868686]" />
         ) : (
-          <button className="py-2 px-6" onClick={() => setSearchValue("")}>
-            <FontAwesomeIcon icon={faTimes} size="sm" color="lightgrey" />
-          </button>
+          <FontAwesomeIcon
+            icon={faX}
+            onClick={() => setQuery("")}
+            className="cursor-pointer text-[#868686]"
+          />
         )}
       </div>
+      {query && (
+        <div className="bg-[#E6E6E6] absolute top-0 w-full pt-10 rounded-3xl">
+          {query && <SearchList query={query} setQuery={setQuery} />}
+        </div>
+      )}
     </div>
   );
 };
