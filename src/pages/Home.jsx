@@ -8,12 +8,14 @@ const Home = () => {
       <Hero />
       {/* Some General Info */}
       <div className="w-[80%] max-w-[800px] mx-auto my-12 mb-20">
-        <h3 className="text-xl mb-4 font-bold">Lorem Ipsum</h3>
+        <h3 className="text-xl mb-4 font-bold">What is DinoPedia?</h3>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores sit
-          autem dolore hic voluptatem porro cum sapiente accusamus eos quis
-          possimus, magni adipisci. Exercitationem obcaecati cumque dolorum
-          voluptate rerum optio!
+          Think of it as a digital encyclopedia filled to the brim with dino
+          data straight from the National History Museum. You'll find pictures,
+          detailed info on diets, species, and more, plus some cool data charts
+          to geek out over. Whether you're a dino enthusiast or just curious
+          about these ancient creatures, DinoPedia's got you covered with all the
+          facts!
         </p>
       </div>
       {/* Nav Cards */}

@@ -1,16 +1,16 @@
-import { faCircleInfo, faMap } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faBarChart } from "@fortawesome/free-regular-svg-icons";
 
 export const navCardData = [
   {
-    title: "Go Digging",
-    description: "Check out our interactive dinosaur map!",
-    to: "/go-digging",
-    icon: faMap,
+    title: "T-Rex",
+    description: "Learn more about the Tyrannosaurus rex!",
+    to: "/dinosaurs/Tyrannosaurus",
+    icon: "",
   },
   {
     title: "Dino Data",
-    description: "Learn more about dinosaur diets & types",
+    description: "Check out different dinosaur diets & types",
     to: "/data",
     icon: faBarChart,
   },
