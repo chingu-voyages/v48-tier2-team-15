@@ -5,7 +5,6 @@ import App from "./App";
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
-import GoDigging from "./pages/GoDigging";
 import Data from "./pages/Data";
 import DinosaurDetailView from "./pages/DinosaurDetailView";
 import Error from "./pages/Error";
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-      },
-      {
-        path: "/go-digging",
-        element: <GoDigging />,
       },
       {
         path: "/data",
