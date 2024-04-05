@@ -1,37 +1,33 @@
 import { useParams } from "react-router-dom";
-import {useFetch} from '../hooks/useFetch'
-import DinoMap from '../components/DinoMap'
+import { useFetch } from "../hooks/useFetch";
+import DinoMap from "../components/DinoMap";
 import { useGeocode } from "../hooks/useGeocode";
 import { useEffect, useState } from "react";
+import { splitCountriesStringToArray } from "../utils/spitCountriesStringToArray";
 
 const DinosaurDetail = () => {
+  const [dinoData, setDinoData] = useState(null);
+  const [foundIn, setFoundIn] = useState([]);
   const { dinosaurName } = useParams();
 
-  // use useFetch hook to get details for a specific dinosaur (e.g., dino with id=1)
-  // returned data.foundIn value can be used to 
   const { data, error, loading } = useFetch(
-    "https://chinguapi.onrender.com/dinosaurs/1"
-  );
-  const foundIn = data["foundIn"]
-
-  // useGeocode custom hook. Returns a geocodeAddress function that takes an address (e.g., country name) and returns geocode lat/long information
-  //can use returned coordinates to pass in as markers to the <DinoMap /> component 
-  const [coordinates, geocodeAddress] = useGeocode();
-
-  // probably will want to cache this information so it's not hitting the api each time this component renders
-  geocodeAddress(foundIn);
-
-  const markers = [{"lat": -30.559482, "lng": 22.937506}]  
-  const { data, loading } = useFetch(
     "https://chinguapi.onrender.com/dinosaurs"
   );
 
-  const [dinoData, setDinoData] = useState(null);
+  // useGeocode custom hook. Returns a geocodeAddress function that takes an address (e.g., country name) and returns geocode lat/long information
+  //can use returned coordinates to pass in as markers to the <DinoMap /> component
+  const [coordinates, geocodeAddress] = useGeocode();
+
+  // probably will want to cache this information so it's not hitting the api each time this component renders
+  geocodeAddress(splitCountriesStringToArray(foundIn));
+
+  const markers = Object.values(coordinates).map((item) => item);
 
   useEffect(() => {
     if (data) {
       const dino = data.find((dinosaur) => dinosaur.name === dinosaurName);
       setDinoData(dino);
+      setFoundIn([dino.foundIn]);
     }
   }, [data, dinosaurName]);
 
@@ -98,15 +94,21 @@ const DinosaurDetail = () => {
               <h4 className="font-bold text-lg mb-2">Taxonomy Details</h4>
               <p className="text-[.95rem] leading-6">{dinoData?.taxonomy}</p>
             </div>
+            <div>
+              <h4 className="font-bold text-lg mb-4 w-full">
+                Where did I live?
+              </h4>
+              <p className="text-[.95rem] leading-6 mb-6">
+                The marker(s) below show the places in which the{" "}
+                {dinoData?.name} has been found in.
+              </p>
+              <div className="max-w-[800px]">
+                <DinoMap markers={markers}></DinoMap>
+              </div>
+            </div>
           </div>
         </>
       )}
-    <div>
-      <h1 className="text-2xl font-semibold">Dinosaur Detail View</h1>
-      <p>
-        This page will show all the information relating to a specific dinosaur.
-      </p>
-      <DinoMap markers={markers}></DinoMap>
     </div>
   );
 };
