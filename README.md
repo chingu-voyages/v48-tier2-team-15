@@ -113,9 +113,7 @@ We're thinking of adding a cool twist – using News data to show you the latest
 
 - Geoff Jamieson: [GitHub](https://github.com/UnionPAC) / [LinkedIn](https://www.linkedin.com/in/geoffjamieson/)
 - Vanshika Patel: [GitHub](https://github.com/vanshika-99) / [LinkedIn](https://linkedin.com/in/vanshikapatel)
-- Molly Gehring: [Github](https://github.com/mkg1) / [LinkedIn](https://www.linkedin.com/in/mollykg/)
 - Ja'Mesa Dixon: [Github](https://github.com/MeMeD10) / [LinkedIn](https://www.linkedin.com/in/jamesa-dixon/)
-- Koen Arnold: [Github](https://github.com/koenarnold) / [LinkedIn](https://www.linkedin.com/in/arnoldkoen/)
 - Oleg Klyufinskyy: [GitHub](https://github.com/olegklyufinskyy) / [LinkedIn](https://www.linkedin.com/in/oleg-klyufinskyy/)
 
 ## Acknowledgements
