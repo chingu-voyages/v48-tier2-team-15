@@ -16,12 +16,6 @@ const About = () => {
       role: "UI/UX Designer",
     },
     {
-      name: "Molly Gehring",
-      github: "https://github.com/mkg1",
-      linkedin: "https://www.linkedin.com/in/mollykg/",
-      role: "Frontend Developer",
-    },
-    {
       name: "Ja'Mesa Dixon",
       github: "https://github.com/MeMeD10",
       linkedin: "https://www.linkedin.com/in/jamesa-dixon/",
@@ -36,7 +30,7 @@ const About = () => {
   ];
 
   return (
-    <div className="w-[90%] mx-auto max-w-[1400px]">
+    <main className="w-[90%] mx-auto max-w-[1400px]">
       <div className="my-20 px-4 max-w-[1000px] mx-auto">
         <h2 className="text-center flex-col text-3xl font-bold my-12 tracking-widest">
           About the App
@@ -102,7 +96,7 @@ const About = () => {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
