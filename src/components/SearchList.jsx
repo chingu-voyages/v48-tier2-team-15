@@ -4,7 +4,7 @@ import SearchListItem from "./SearchListItem";
 
 // Implement a search feature allowing users to search for dinosaurs by name, weight, length, country and diet.
 
-const SearchList = ({ query, setQuery }) => {
+const SearchList = ({ query, setQuery, onClose }) => {
   const { data, error, loading } = useFetch(
     "https://chinguapi.onrender.com/dinosaurs"
   );
@@ -32,7 +32,9 @@ const SearchList = ({ query, setQuery }) => {
   return (
     <ul className="mt-2" onClick={() => setQuery("")}>
       {filteredData.length > 0 &&
-        filteredData.map((dino) => <SearchListItem dino={dino} />)}
+        filteredData.map((dino, index) => (
+          <SearchListItem dino={dino} onClose={onClose} key={index} />
+        ))}
       {loading && <p className="text-sm p-4">Loading ...</p>}
     </ul>
   );

@@ -3,7 +3,7 @@ import { faSearch, faX } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import SearchList from "./SearchList";
 
-const SearchBar = () => {
+const SearchBar = ({ onClose }) => {
   const [query, setQuery] = useState("");
 
   const handleChange = ({ target }) => {
@@ -32,7 +32,7 @@ const SearchBar = () => {
       </div>
       {query && (
         <div className="bg-[#E6E6E6] absolute top-0 w-full pt-10 rounded-3xl">
-          {query && <SearchList query={query} setQuery={setQuery} />}
+          {query && <SearchList query={query} setQuery={setQuery} onClose={onClose} />}
         </div>
       )}
     </div>
