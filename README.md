@@ -1,4 +1,4 @@
-# [App Name - TBD]
+# DinoPedia
 
 An app all about dinosaurs
 
