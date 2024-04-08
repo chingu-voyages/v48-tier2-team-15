@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef } from "react";
 import styles from "./chart.module.css";
 
 const MARGIN_X = 100;
-const MARGIN_Y = 100;
+const MARGIN_Y = 130;
 const INFLEXION_PADDING = 40;
 
 const DoughnutChart = ({ data, height, width }) => {
@@ -100,7 +100,7 @@ const DoughnutChart = ({ data, height, width }) => {
           y={inflexionPoint[1]}
           textAnchor={textAnchor}
           dominantBaseline="middle"
-          fontSize={14}
+          fontSize={18}
         >
           {label}
         </text>

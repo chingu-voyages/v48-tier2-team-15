@@ -1,6 +1,8 @@
 import { useFetch } from "../hooks/useFetch";
 import PieChart from "../components/PieChart";
 import DoughnutChart from "../components/DoughnutChart";
+import pieChartImg from "../assets/pie.png";
+import doughnutChartImg from "../assets/doughnut.png";
 
 const Data = () => {
   const { data, error, loading } = useFetch(
@@ -23,7 +25,7 @@ const Data = () => {
         </div>
       ) : (
         <div className="w-full h-full object-contain flex flex-col items-center my-20 space-y-32">
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center p-2">
             <h2 className="mb-6 text-4xl font-bold text-slate-600">
               Types of Dinosaurs
             </h2>
@@ -32,16 +34,29 @@ const Data = () => {
               in brackets represents the number of dinosaurs of that specific
               type of dinosaur.
             </small>
-            <DoughnutChart data={data} height={700} width={1000} />
+            <div className="flex lg:hidden">
+              <img
+                src={doughnutChartImg}
+                alt="Doughnut chart of types of dinosaurs"
+              />
+            </div>
+            <div className="hidden lg:flex">
+              <DoughnutChart data={data} height={700} width={1000} />
+            </div>
           </div>
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center p-2">
             <h2 className="mb-6 text-4xl font-bold text-slate-600">
               Dinosaur Diets
             </h2>
             <small className="italic max-w-[600px] mb-4">
               This chart shows the diet percentages for all given dinosaurs.
             </small>
-            <PieChart data={data} height={700} width={1000} />
+            <div className="flex lg:hidden">
+              <img src={pieChartImg} alt="Pie chart of dinosaur diets" />
+            </div>
+            <div className="hidden lg:flex">
+              <PieChart data={data} height={700} width={1000} />
+            </div>
           </div>
         </div>
       )}
