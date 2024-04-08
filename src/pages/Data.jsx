@@ -7,8 +7,6 @@ const Data = () => {
     "https://chinguapi.onrender.com/dinosaurs"
   );
 
-  console.log('data: ', data)
-
   return (
     <main>
       {error && <>{error.message}</>}
@@ -24,9 +22,27 @@ const Data = () => {
           </div>
         </div>
       ) : (
-        <div className="flex">
-          <PieChart data={data} height={500} width={700} />
-          <DoughnutChart data={data} height={500} width={700} />
+        <div className="w-full h-full object-contain flex flex-col items-center my-20 space-y-32">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="mb-6 text-4xl font-bold text-slate-600">
+              Types of Dinosaurs
+            </h2>
+            <small className="italic max-w-[600px] mb-8">
+              The total number of dinosaurs in this dataset is 316, the number
+              in brackets represents the number of dinosaurs of that specific
+              type of dinosaur.
+            </small>
+            <DoughnutChart data={data} height={700} width={1000} />
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <h2 className="mb-6 text-4xl font-bold text-slate-600">
+              Dinosaur Diets
+            </h2>
+            <small className="italic max-w-[600px] mb-4">
+              This chart shows the diet percentages for all given dinosaurs.
+            </small>
+            <PieChart data={data} height={700} width={1000} />
+          </div>
         </div>
       )}
     </main>
