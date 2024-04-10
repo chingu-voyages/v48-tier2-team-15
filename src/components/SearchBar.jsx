@@ -1,34 +1,40 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faX } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import SearchList from "./SearchList";
 
-const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState("");
+const SearchBar = ({ onClose }) => {
+  const [query, setQuery] = useState("");
 
   const handleChange = ({ target }) => {
-    setSearchValue(target.value);
+    setQuery(target.value);
   };
 
   return (
-    <div className="hidden md:flex items-center rounded-3xl overflow-hidden bg-gray-100 border-2 border-gray-200 flex-1 max-w-[500px]">
-      <input
-        type="text"
-        value={searchValue}
-        onChange={handleChange}
-        placeholder="Search..."
-        className="focus:outline-none w-full py-2 px-6 text-sm tracking-wide bg-gray-100"
-      />
-      <div className="transition ease-in-out duration-1000">
-        {searchValue === "" ? (
-          <div className="py-2 px-6 ">
-            <FontAwesomeIcon icon={faSearch} size="sm" color="grey" />
-          </div>
+    <div className="flex flex-col relative">
+      <div className="flex items-center bg-[#E6E6E6] rounded-3xl px-5 py-3 z-10">
+        <input
+          type="text"
+          value={query}
+          onChange={handleChange}
+          placeholder="Search..."
+          className="focus:outline-none w-full bg-inherit text-[0.85rem]"
+        />
+        {query === "" ? (
+          <FontAwesomeIcon icon={faSearch} className="text-[#868686]" />
         ) : (
-          <button className="py-2 px-6" onClick={() => setSearchValue("")}>
-            <FontAwesomeIcon icon={faX} size="sm" color="grey" />
-          </button>
+          <FontAwesomeIcon
+            icon={faX}
+            onClick={() => setQuery("")}
+            className="cursor-pointer text-[#868686]"
+          />
         )}
       </div>
+      {query && (
+        <div className="bg-[#E6E6E6] absolute top-0 w-full pt-10 rounded-3xl">
+          {query && <SearchList query={query} setQuery={setQuery} onClose={onClose} />}
+        </div>
+      )}
     </div>
   );
 };

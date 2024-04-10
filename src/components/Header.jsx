@@ -1,100 +1,119 @@
-import { Link } from "react-router-dom";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 import SearchBar from "./SearchBar";
+import SliderMenu from "./SliderMenu";
+import { useState, useEffect } from "react";
+
+const navLinks = [
+  { name: "About", to: "/about" },
+  { name: "Data", to: "/data" },
+];
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [sliderMenuOpen, setSliderMenuOpen] = useState(false);
+  const [searchBarVisible, setSearchBarVisible] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // stop scrolling when slider menu is open
+  useEffect(() => {
+    if (searchBarVisible) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [searchBarVisible]);
 
   return (
-    <header className="flex items-center justify-between p-4 sm:p-6 md:p-8 lg:px-10 gap-8 ">
-      <Link to="/" className="xl:flex-1">
-        <h1 className="text-3xl md:text-4xl font-mountainsOfChristmas font-bold">
-          DinoWorld
-        </h1>
-      </Link>
-
-      {/* Mobile Nav*/}
-      {isOpen ? (
-        <div className="fixed top-0 left-0 h-full w-full bg-black z-10">
+    <header className="p-6 md:px-8">
+      {/* Mobile Layout */}
+      <div className="md:hidden ">
+        <div className="flex items-center justify-between">
           <FontAwesomeIcon
-            icon={faX}
-            size="lg"
-            color="white"
-            onClick={toggleMenu}
+            icon={faBars}
+            className="text-slate-500"
+            onClick={() => setSliderMenuOpen(true)}
           />
-          <div className="flex flex-col items-center text-white my-24">
-            <h2 className="text-4xl font-bold mb-14">Menu</h2>
-            <nav>
-              <ul className="space-y-6 text-center">
-                <li>
-                  <Link to="/" onClick={() => setIsOpen(false)}>
-                    Home
+          <Link to="/">
+            <img src={logo} alt="DinoPedia" />
+          </Link>
+          <FontAwesomeIcon
+            icon={faSearch}
+            className="text-slate-500"
+            onClick={() => setSearchBarVisible(true)}
+          />
+        </div>
+        <SliderMenu isOpen={sliderMenuOpen} setIsOpen={setSliderMenuOpen} />
+        {searchBarVisible && (
+          <>
+            <div
+              className={`fixed top-0 left-0 w-full h-full bg-black opacity-50 z-50`}
+              onClick={() => setSearchBarVisible(false)}
+            ></div>
+
+            <div className="fixed top-0 left-0 w-full z-[100] bg-opacity-50 flex justify-center">
+              <div className="flex-1 p-4">
+                <SearchBar onClose={() => setSearchBarVisible(false)} />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* Tablet & Desktop Layout */}
+      <div className="hidden md:block">
+        <div className="flex items-center justify-between gap-8">
+          <Link to="/">
+            <img src={logo} alt="DinoPedia" />
+          </Link>
+          <nav>
+            <ul
+              className={`flex space-x-4 lg:space-x-6 ${
+                searchBarVisible ? "hidden" : ""
+              }`}
+            >
+              {navLinks.map(({ name, to }, index) => (
+                <li
+                  key={index}
+                  className="bg-slate-700 text-white text-[0.95rem] rounded-3xl hover:bg-[#40826D]"
+                >
+                  <Link to={to}>
+                    <p className="px-6 py-3">{name}</p>
                   </Link>
                 </li>
-                <li>
-                  <Link to="/about" onClick={() => setIsOpen(false)}>
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/go-digging" onClick={() => setIsOpen(false)}>
-                    Go Digging
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/data" onClick={() => setIsOpen(false)}>
-                    Data
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+              ))}
+            </ul>
+          </nav>
+          <div className="lg:hidden">
+            <FontAwesomeIcon
+              icon={faSearch}
+              onClick={() => setSearchBarVisible(true)}
+              className="text-slate-500"
+            />
+            {searchBarVisible && (
+              <>
+                <div
+                  className={`fixed top-0 left-0 w-full h-full bg-black opacity-50 z-50`}
+                  onClick={() => setSearchBarVisible(false)}
+                ></div>
+
+                <div className="fixed top-0 left-0 w-full z-[100] bg-opacity-50 flex justify-center">
+                  <div className="flex-1 p-4">
+                    <SearchBar onClose={() => setSearchBarVisible(false)} />
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+          <div className="hidden lg:block flex-1 max-w-[500px]">
+            <SearchBar />
           </div>
         </div>
-      ) : (
-        <FontAwesomeIcon
-          icon={faBars}
-          size="lg"
-          onClick={toggleMenu}
-          className="md:hidden"
-        />
-      )}
-
-      {/* Desktop Nav */}
-      <nav className="hidden md:flex text-[0.9rem] font-firaSans lg:flex-1 ml-4">
-        <ul className="flex space-x-4 lg:space-x-8">
-          <li>
-            <Link
-              to="/about"
-              className="border-2 p-3 md:px-4 xl:px-6 rounded-3xl hover:bg-slate-100"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/go-digging"
-              className="border-2 p-3 md:px-4 xl:px-6 rounded-3xl hover:bg-slate-100"
-            >
-              Go Digging
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/data"
-              className="border-2 p-3 md:px-4 xl:px-6 rounded-3xl hover:bg-slate-100"
-            >
-              Data
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <SearchBar />
+      </div>
     </header>
   );
 };
