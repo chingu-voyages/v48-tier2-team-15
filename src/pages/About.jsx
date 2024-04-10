@@ -35,14 +35,21 @@ const About = () => {
         <h2 className="text-center flex-col text-3xl font-bold my-12 tracking-widest">
           About the App
         </h2>
+        <p className="text-center mb-4">
+          DinoPedia is a web application developed by a team on a
+          <a href="https://www.chingu.io/" className="text-blue-500">
+            {" "}
+            Chingu
+          </a>{" "}
+          Voyage (Voyage 48 ⛵️)
+        </p>
         <p className="text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          nobis aspernatur dolorum at earum? Ducimus maiores illo debitis.
-          Repellat maxime temporibus porro harum nemo inventore assumenda minus
-          tenetur doloremque veniam. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Temporibus nobis aspernatur dolorum at earum?
-          Ducimus maiores illo debitis. Repellat maxime temporibus porro harum
-          nemo inventore assumenda minus tenetur doloremque veniam?
+          Chingu is a program designed to enhance coding and soft skills through
+          collaborative software development projects. In this project, we used
+          data provided from the National History Museum to create a
+          user-friendly resource for dinosaur exploration. DinoPedia leverages
+          the museum's extensive paleontological data to provide a comprehensive
+          and interactive learning experience.
         </p>
       </div>
       <div className="my-24">
@@ -53,7 +60,7 @@ const About = () => {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="px-4 py-16 rounded shadow hover:scale-105 border-4"
+              className="px-4 py-16 rounded shadow hover:scale-105 border-4 bg-slate-600 text-white border-slate-700"
             >
               <h3 className="text-2xl font-semibold mb-2 tracking-wider">
                 {member.name}
@@ -65,14 +72,22 @@ const About = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FontAwesomeIcon icon={faGithub} size="2xl" />
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    size="2xl"
+                    className="text-slate-400 hover:text-white"
+                  />
                 </a>
                 <a
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FontAwesomeIcon icon={faLinkedin} size="2xl" />
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    size="2xl"
+                    className="text-slate-400 hover:text-white"
+                  />
                 </a>
               </div>
             </div>
