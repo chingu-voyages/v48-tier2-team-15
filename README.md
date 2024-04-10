@@ -108,6 +108,8 @@ We're thinking of adding a cool twist – using News data to show you the latest
 - React
 - React-Router
 - TailwindCSS
+- d3 (data visualizations)
+- React Google Maps API
 
 ## Our Team
 
