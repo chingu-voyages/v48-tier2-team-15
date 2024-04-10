@@ -100,7 +100,7 @@ const DoughnutChart = ({ data, height, width }) => {
           y={inflexionPoint[1]}
           textAnchor={textAnchor}
           dominantBaseline="middle"
-          fontSize={18}
+          fontSize={14}
         >
           {label}
         </text>
