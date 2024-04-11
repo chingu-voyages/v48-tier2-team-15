@@ -1,7 +1,7 @@
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.png";
 import SearchBar from "./SearchBar";
 import SliderMenu from "./SliderMenu";
 import { useState, useEffect } from "react";
@@ -39,7 +39,7 @@ const Header = () => {
             onClick={() => setSliderMenuOpen(true)}
           />
           <Link to="/">
-            <img src={logo} alt="DinoPedia" />
+            <img src={logo} alt="DinoPedia" width={200} height={200} />
           </Link>
           <FontAwesomeIcon
             icon={faSearch}
@@ -68,7 +68,7 @@ const Header = () => {
       <div className="hidden md:block">
         <div className="flex items-center justify-between gap-8">
           <Link to="/">
-            <img src={logo} alt="DinoPedia" />
+          <img src={logo} alt="DinoPedia" width={250} height={250} />
           </Link>
           <nav>
             <ul
