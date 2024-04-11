@@ -26,7 +26,7 @@ const Data = () => {
       ) : (
         <div className="w-full h-full object-contain flex flex-col items-center my-20 space-y-32">
           <div className="flex flex-col items-center text-center p-2">
-            <h2 className="mb-6 text-4xl font-bold text-slate-600">
+            <h2 className="text-center flex-col text-3xl font-bold mb-6 tracking-widest">
               Types of Dinosaurs
             </h2>
             <small className="italic max-w-[600px] mb-8">
@@ -45,7 +45,7 @@ const Data = () => {
             </div>
           </div>
           <div className="flex flex-col items-center text-center p-2">
-            <h2 className="mb-6 text-4xl font-bold text-slate-600">
+            <h2 className="mb-6 text-center flex-col text-3xl font-bold tracking-widest">
               Dinosaur Diets
             </h2>
             <small className="italic max-w-[600px] mb-4">
